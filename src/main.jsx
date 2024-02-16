@@ -1,58 +1,26 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { Business } from "./pages/BusinessPage";
+import { ErrorPage } from "./pages/ErrorPage";
+import { Home } from "./pages/HomePage";
+import { Login } from "./pages/LoginPage";
+import { Photo } from "./pages/PhotoPage";
+import { Review } from "./pages/ReviewPage";
+import { User } from "./pages/UsersPage";
 
-import App, {
-  ErrorPage,
-  FilmData,
-  FilmPage,
-  Films,
-  Home,
-  People,
-  PeoplePage,
-  PersonData,
-  PlanetData,
-  PlanetPage,
-  Planets,
-} from "./App";
-
+import { Outlet } from "react-router-dom";
 import "./index.css";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
-    errorElement: (
-      <App>
-        <ErrorPage />
-      </App>
-    ),
+    element: <Home />,
     children: [
-      { index: true, element: <Home /> },
-      {
-        path: "people",
-        element: <People />,
-        children: [
-          { path: ":personData", element: <PersonData /> },
-          { index: true, element: <PeoplePage /> },
-        ],
-      },
-      {
-        path: "planets",
-        element: <Planets />,
-        children: [
-          { path: ":planetData", element: <PlanetData /> },
-          { index: true, element: <PlanetPage /> },
-        ],
-      },
-      {
-        path: "films",
-        element: <Films />,
-        children: [
-          { path: ":filmData", element: <FilmData /> },
-          { index: true, element: <FilmPage /> },
-        ],
-      },
+      { index: true, element: <Login /> }, // Display login page by default
+      { path: "business", element: <Business /> },
+      { path: "photo", element: <Photo /> },
+      { path: "review", element: <Review /> },
     ],
   },
 ]);
