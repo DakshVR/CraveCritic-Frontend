@@ -13,7 +13,7 @@ import planet_data from "/src/data/planets.json";
 export function Home() {
   return (
     <>
-      <h1>A long time ago, in a galaxy far, far away...</h1>
+      <h1> galaxy far, far away...</h1>
     </>
   );
 }
