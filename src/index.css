@@ -1,0 +1,65 @@
+@import url("https://fonts.googleapis.com/css2?family=Exo&display=swap");
+
+body {
+  margin: 0;
+  font-family: "Exo", sans-serif;
+}
+
+a.active {
+  background-color: rgb(43, 69, 214);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(43, 137, 214);
+  padding: 10px;
+  height: 50px;
+}
+
+.navbar a {
+  flex: 1;
+  font-size: 30px;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+}
+
+.navbar a:hover {
+  background-color: rgb(214, 89, 43); /* Change background color on hover */
+}
+
+.container {
+  display: flex;
+}
+
+.sidebar {
+  width: 200px;
+  background-color: rgb(100, 175, 236);
+  padding: 10px;
+  height: calc(97vh - 50px);
+  overflow-y: auto;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar a {
+  display: block;
+  text-decoration: none;
+  color: black;
+  font-size: 18px;
+  padding: 5px 10px;
+}
+
+.sidebar a:hover {
+  background-color: #ccc;
+}
+
+.content {
+  flex: 1;
+  padding: 10px;
+}
