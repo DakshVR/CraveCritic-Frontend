@@ -1,11 +1,10 @@
 .form-container {
   font-family: Arial;
-  background-color: #3498db;
+  background-color: #a4b5c0;
   padding: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Set the height to 100% of the viewport height */
 }
 
 .form-wrapper {
