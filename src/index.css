@@ -6,7 +6,7 @@ body {
 }
 
 a.active {
-  background-color: rgb(43, 69, 214);
+  background-color: rgb(166, 173, 213);
 }
 
 .navbar {
@@ -20,6 +20,7 @@ a.active {
 
 .navbar a {
   flex: 1;
+  border-radius: 50px;
   font-size: 30px;
   text-align: center;
   text-decoration: none;
@@ -27,7 +28,7 @@ a.active {
 }
 
 .navbar a:hover {
-  background-color: rgb(214, 89, 43); /* Change background color on hover */
+  background-color: rgb(43, 200, 214); /* Change background color on hover */
 }
 
 .container {
