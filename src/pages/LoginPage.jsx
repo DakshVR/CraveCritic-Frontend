@@ -1,13 +1,15 @@
-// Login.jsx
 import { Link, NavLink } from "react-router-dom";
 import "../components/Loginpage.css";
 import { useState } from "react";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query"; // Import useMutation hook
+import { useDispatch } from "react-redux";
+import { loginSuccess } from "../redux/store";
 import Spinner from "../components/Spinner";
 
 export function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
 
   const mutation = useMutation({
     mutationFn: async (loginInfo) => {
@@ -19,7 +21,7 @@ export function Login() {
         });
 
         if (!response.ok) {
-          throw new Error("Failed to login"); // Throw an error for non-200 responses
+          throw new Error("Failed to login");
         }
 
         return response.json();
@@ -28,25 +30,23 @@ export function Login() {
       }
     },
     onSuccess: (data) => {
-      console.log("Logged In successfully:", data);
-      // Handle success
+      console.log("Logged In successfully:", data.token, data.user);
+      dispatch(loginSuccess(data.token, data.user));
     },
     onError: (error) => {
       console.error("Failed Authentication:", error.message);
-      // Access error response from backend if available
       if (error.response) {
         error.response.json().then((data) => {
-          console.error("Backend Error:", data.error); // Log the error from the backend
+          console.error("Backend Error:", data.error);
         });
       }
-      // Handle error
     },
   });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (email && password) {
-      console.log("Data: ", { email, password });
+      // console.log("Data: ", { email, password });
       mutation.mutate({ email, password });
     }
   };

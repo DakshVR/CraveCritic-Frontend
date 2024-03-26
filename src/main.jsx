@@ -9,11 +9,13 @@ import { Login } from "./pages/LoginPage";
 import { Photo } from "./pages/PhotoPage";
 import { Review } from "./pages/ReviewPage";
 import { User } from "./pages/UsersPage";
+import store from "./redux/store";
 
 import { Outlet } from "react-router-dom";
 import "./index.css";
 import { CreateAccount } from "./pages/CreateAccount";
 import Layout from "./pages/Layout";
+import { Provider } from "react-redux";
 
 const queryClient = new QueryClient();
 
@@ -62,8 +64,10 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
-    </QueryClientProvider>
+    <Provider store={store}>
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+      </QueryClientProvider>
+    </Provider>
   </React.StrictMode>
 );
